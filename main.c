@@ -11,7 +11,7 @@
 
 
 
-//char html[]="<!DOCTYPE html><html><head><meta charset='UTF-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'><meta name='viewport' content='width=device-width, initial-scale=1.0'><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6' crossorigin='anonymous'></head><body><style>.bgroup{padding-left:150px;}#ledDurum{margin-top:25px;}</style><form><h2  style='color:black' class='text-center'>LED AÇ KAPAT</h2><div style='text-align:center;margin-top:75px;'><button type='button' id='ledAc' onclick='uygula('ac')' class='btn btn-success' style='width:100px;height:50px'>Aç</button><button type='button' id='ledKapat' onclick='uygula('kapat')' class='btn btn-danger' style='width:100px;height:50px;margin-left:50px;' disabled='true'>Kapat</button></div><h2 id='ledDurum' style='color:red' class='text-center'>KAPALI</h2></form><script>function aL(aU){var aR =new XMLHttpRequest();var deger='yazi';aR.onreadystatechange=function(){if(this.readyState==4 && this.status==200){if(aU=='LEDON'){document.getElementById('ledAc').disabled=true;setTimeout(git,1000,'ledKapat');}else{document.getElementById('ledKapat').disabled=true;setTimeout(git,1000,'ledAc');}}};aR.open('GET',aU,true);aR.send();}function uygula(durum){if(durum=='ac'){aL('LEDON');}else{aL('LEDOFF');}}function git(kimlik){if(kimlik=='ledKapat'){var deger=document.getElementById('ledDurum');deger.style.color='green';deger.innerHTML='AÇIK';}else{var deger=document.getElementById('ledDurum');deger.style.color='red';deger.innerHTML='KAPALI';}document.getElementById(kimlik).disabled=false;}</script></body></html>";
+//char html[]="<!DOCTYPE html><html><head><meta charset='UTF-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'><meta name='viewport' content='width=device-width, initial-scale=1.0'><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6' crossorigin='anonymous'></head><body><style>.bgroup{padding-left:150px;}#ledDurum{margin-top:25px;}</style><form><h2  style='color:black' class='text-center'>LED AÃ‡ KAPAT</h2><div style='text-align:center;margin-top:75px;'><button type='button' id='ledAc' onclick='uygula('ac')' class='btn btn-success' style='width:100px;height:50px'>AÃ§</button><button type='button' id='ledKapat' onclick='uygula('kapat')' class='btn btn-danger' style='width:100px;height:50px;margin-left:50px;' disabled='true'>Kapat</button></div><h2 id='ledDurum' style='color:red' class='text-center'>KAPALI</h2></form><script>function aL(aU){var aR =new XMLHttpRequest();var deger='yazi';aR.onreadystatechange=function(){if(this.readyState==4 && this.status==200){if(aU=='LEDON'){document.getElementById('ledAc').disabled=true;setTimeout(git,1000,'ledKapat');}else{document.getElementById('ledKapat').disabled=true;setTimeout(git,1000,'ledAc');}}};aR.open('GET',aU,true);aR.send();}function uygula(durum){if(durum=='ac'){aL('LEDON');}else{aL('LEDOFF');}}function git(kimlik){if(kimlik=='ledKapat'){var deger=document.getElementById('ledDurum');deger.style.color='green';deger.innerHTML='AÃ‡IK';}else{var deger=document.getElementById('ledDurum');deger.style.color='red';deger.innerHTML='KAPALI';}document.getElementById(kimlik).disabled=false;}</script></body></html>";
 
 	 
 char html2[1300]="<!DOCTYPE html><html><body>\
@@ -182,7 +182,7 @@ int main()
 	
 	veri_yollaESP8266(" AT+CWMODE=1\r\n");
 	bekle(2000);
-	veri_yollaESP8266("AT+CWJAP=\"MiRDEV\",\"995A5C4F2B9E4\"\r\n");//veri_yollaESP8266("AT+CWJAP=\"ILKER\",\"ilkeraykut07\"\r\n");veri_yollaESP8266("AT+CWJAP=\"MiRDEV\",\"995A5C4F2B9E4\"\r\n")
+	veri_yollaESP8266("AT+CWJAP=\"wifiname\",\"wifipassword\"\r\n");
 	bekle(5000);
 	veri_yollaESP8266("AT+CIPMUX=1\r\n");//1
 	bekle(200);
@@ -204,14 +204,14 @@ while(1)
 	if(mod==0) 
 	{
 		  ptr=strstr((char *)gelenCevap,"+IPD");
-      if(ptr) //Adres çubuguna IP adresi girildignde bu cevap doner.
+      if(ptr) //Adres Ã§ubuguna IP adresi girildignde bu cevap doner.
 			{ 
 				 mod++;
 				 msn=0;
 			}
 	}
 	
-	 if(mod==1 && msn>=300) //Bütün cevabin gelmesi yaklasik 300 ms.
+	 if(mod==1 && msn>=300) //BÃ¼tÃ¼n cevabin gelmesi yaklasik 300 ms.
 		
 		{
 			
@@ -435,7 +435,7 @@ window.location.assign('http://192.168.1.37/');\
 	 
   }
 	
-	 if(mod==3 && msn>=1000) //AT+CIPSEND gonderildikten sonra 1sn sonra yeni AT komutu gönderilmeli.
+	 if(mod==3 && msn>=1000) //AT+CIPSEND gonderildikten sonra 1sn sonra yeni AT komutu gÃ¶nderilmeli.
 	{
 		char kapat []="AT+CIPCLOSE=";//0,id
 		char stringSayi[5];
